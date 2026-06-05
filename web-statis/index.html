@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<title>Portofolio - Senior Front-End Developer</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Menggunakan font modern (Outfit) dari Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #2563EB;
+  --blue-dark: #1E40AF;
+  --blue-soft: #EFF6FF;
+  --navy: #0F172A;
+  --text: #334155;
+  --muted: #64748B;
+  --surface: #FFFFFF;
+  --bg: #F8FAFC;
+}
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+.logo span {
+  color: var(--blue);
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: var(--blue);
+}
+
+/* --- CONTAINER UMUM --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+  padding: 10rem 0 6rem;
+  background: linear-gradient(135deg, var(--bg) 0%, var(--blue-soft) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.hero-text h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+.hero-text h1 span {
+  color: var(--blue);
+}
+.hero-text p {
+  font-size: 1.15rem;
+  color: var(--text);
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.stat-item {
+  background: var(--surface);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.02);
+}
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 0.2rem;
+}
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.profile-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+/* Menampilkan me.jpg */
+.profile-image {
+  width: 90%;
+  max-width: 400px;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+  border: 8px solid var(--surface);
+  transform: rotate(3deg);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.profile-image:hover {
+  transform: rotate(0deg) translateY(-10px);
+  box-shadow: 0 35px 60px -15px rgba(37,99,235,0.2);
+}
+.floating-badge {
+  position: absolute;
+  bottom: 2rem;
+  left: -1rem;
+  background: var(--surface);
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* --- SECTION UMUM --- */
+.section {
+  padding: 6rem 0;
+}
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--navy);
+  margin-bottom: 4rem;
+}
+.section-title span {
+  color: var(--blue);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+/* --- TIMELINE (Pengalaman & Pendidikan) --- */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--blue-soft);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.35rem;
+  top: 0.25rem;
+  width: 1rem;
+  height: 1rem;
+  background: var(--blue);
+  border: 4px solid var(--surface);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--blue-soft);
+}
+.timeline-date {
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.timeline-title {
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+.timeline-subtitle {
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.timeline-item ul {
+  padding-left: 1.2rem;
+  color: var(--text);
+  margin-top: 0;
+}
+.timeline-item li {
+  margin-bottom: 0.5rem;
+}
+
+/* --- KEAHLIAN --- */
+.skill-card {
+  background: var(--surface);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  height: 100%;
+}
+.skill-card h3 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  color: var(--navy);
+}
+.skill-progress {
+  margin-bottom: 1.5rem;
+}
+.skill-progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--blue-soft);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--blue);
+  border-radius: 4px;
+}
+.tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.tag {
+  background: var(--bg);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* --- PROYEK --- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.project-card {
+  background: var(--surface);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.02);
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border-color: var(--blue-soft);
+}
+.project-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: var(--blue-soft);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+.project-card h3 {
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+.project-card p {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* --- FOOTER --- */
+.footer {
+  background: var(--navy);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+.footer h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.social-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+.social-links a:hover {
+  opacity: 1;
+}
+.copyright {
+  color: rgba(255,255,255,0.6);
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-text p {
+    margin: 0 auto 2.5rem;
+  }
+  .floating-badge {
+    left: 2rem;
+    bottom: 0;
+  }
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .profile-image {
+    transform: rotate(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; 
+  }
+  .hero {
+    padding: 8rem 0 4rem;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .section {
+    padding: 4rem 0;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigasi -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">Porto<span>folio.</span></a>
+    <ul class="nav-links">
+      <li><a href="#beranda">Beranda</a></li>
+      <li><a href="#pengalaman">Pengalaman</a></li>
+      <li><a href="#keahlian">Keahlian</a></li>
+      <li><a href="#proyek">Proyek</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero / Beranda -->
+<section id="beranda" class="hero">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Morin Pita Laura </h1> <h1>2388010040</h1>
+      <p>Halo, saya seorang Senior Front-End Developer dengan pengalaman 5+ tahun dalam pengembangan aplikasi web modern. Terbiasa bekerja lintas tim untuk solusi end-to-end yang optimal.</p>
+      
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">5+</span>
+          <span class="stat-label">Tahun Pengalaman</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">React</span>
+          <span class="stat-label">Keahlian Utama</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">UI/UX</span>
+          <span class="stat-label">Fokus Desain</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="profile-wrapper">
+      <!-- Di sinilah letak me.jpg ditampilkan -->
+      <img src="me.jpg" alt="Foto Profil" class="profile-image" />
+      <div class="floating-badge">
+        👨‍💻 Full-Stack Dev
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pengalaman & Pendidikan -->
+<section id="pengalaman" class="section">
+  <div class="container grid-2">
+    <!-- Kolom 1 -->
+    <div>
+      <h2 class="section-title" style="text-align: left;">Pengalaman <span>Kerja</span></h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-date">2023 – Sekarang</span>
+          <h3 class="timeline-title">Senior Full-Stack Developer</h3>
+          <p class="timeline-subtitle">PT Contoh</p>
+          <ul>
+            <li>Memimpin tim full-stack dalam membangun dashboard analitik dengan React dan GraphQL.</li>
+            <li>Mengoptimalkan times-to-interactive sehingga skor Lighthouse meningkat 24 poin.</li>
+            <li>Memperkenalkan design system untuk konsistensi komponen UI lintas produk.</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">2020 – 2023</span>
+          <h3 class="timeline-title">Full-Stack Developer</h3>
+          <p class="timeline-subtitle">Perusahaan ABC</p>
+          <ul>
+            <li>Mengembangkan e-commerce platform responsif dengan pengalaman checkout yang intuitif.</li>
+            <li>Berkolaborasi dengan tim QA untuk mencapai target reliabilitas 99,7%.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Kolom 2 -->
+    <div>
+      <h2 class="section-title" style="text-align: left;">Pendidikan & <span>Sertifikasi</span></h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-date">2016 – 2020</span>
+          <h3 class="timeline-title">S1 Teknik Informatika</h3>
+          <p class="timeline-subtitle">Universitas Islam Negeri Siber Syekh Nurjati Cirebon</p>
+          <p>Fokus pada pengembangan web, arsitektur aplikasi, dan sistem informasi.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">2023</span>
+          <h3 class="timeline-title">Certified UX Designer</h3>
+          <p class="timeline-subtitle">Google</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">2021</span>
+          <h3 class="timeline-title">Certified Full-Stack Developer</h3>
+          <p class="timeline-subtitle">Agile Team Member</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Keahlian -->
+<section id="keahlian" class="section" style="background-color: var(--surface);">
+  <div class="container grid-2">
+    <!-- Skill Bars -->
+    <div class="skill-card" style="box-shadow: none; border: 1px solid rgba(0,0,0,0.05);">
+      <h3>Tech Stack & Alat</h3>
+      
+      <div class="skill-progress">
+        <div class="skill-progress-header">
+          <span>React & Next.js</span>
+          <span>90%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 90%;"></div>
+        </div>
+      </div>
+      
+      <div class="skill-progress">
+        <div class="skill-progress-header">
+          <span>TypeScript & JavaScript</span>
+          <span>85%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 85%;"></div>
+        </div>
+      </div>
+      
+      <div class="skill-progress">
+        <div class="skill-progress-header">
+          <span>Figma & UI/UX</span>
+          <span>78%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 78%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-progress">
+        <div class="skill-progress-header">
+          <span>Vue.js & Nuxt</span>
+          <span>70%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 70%;"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Tags -->
+    <div class="skill-card" style="background: transparent; box-shadow: none; padding: 1rem 0;">
+      <h3>Keahlian Lain & Bahasa</h3>
+      <p style="color: var(--muted); margin-bottom: 1rem;">Saya memiliki pengalaman luas dalam hal-hal berikut:</p>
+      <div class="tags-wrapper">
+        <span class="tag">HTML5, CSS3, Tailwind</span>
+        <span class="tag">Micro-interactions</span>
+        <span class="tag">Responsivitas Web</span>
+        <span class="tag">Web Accessibility (a11y)</span>
+        <span class="tag">Agile Methodology</span>
+        <span class="tag">Lighthouse Optimization</span>
+      </div>
+
+      <h4 style="color: var(--navy); margin-bottom: 1rem; margin-top: 2rem;">Bahasa yang Dikuasai</h4>
+      <div class="tags-wrapper">
+        <span class="tag" style="background: var(--blue-soft); color: var(--blue); border-color: transparent;">🇮🇩 Indonesia (Native)</span>
+        <span class="tag" style="background: var(--blue-soft); color: var(--blue); border-color: transparent;">eng English (Professional)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Proyek Sorotan -->
+<section id="proyek" class="section">
+  <div class="container">
+    <h2 class="section-title">Proyek <span>Sorotan</span></h2>
+    <div class="projects-grid">
+      <!-- Proyek 1 -->
+      <div class="project-card">
+        <div class="project-icon">📈</div>
+        <h3>Dashboard Penjualan Interaktif</h3>
+        <p>Membangun dashboard real-time dengan charts, filter, dan monitoring KPI untuk tim penjualan jarak jauh.</p>
+      </div>
+      
+      <!-- Proyek 2 -->
+      <div class="project-card">
+        <div class="project-icon">💼</div>
+        <h3>Platform Portofolio Personal</h3>
+        <p>Mendesain portofolio digital yang responsif dengan animasi ringan dan struktur navigasi intuitif.</p>
+      </div>
+      
+      <!-- Proyek 3 -->
+      <div class="project-card">
+        <div class="project-icon">🤝</div>
+        <h3>Aplikasi Manajemen Tim</h3>
+        <p>Implementasi fitur kolaborasi tugas dan notifikasi push untuk meningkatkan produktivitas tim secara online.</p>
+      </div>
+      
+      <!-- Proyek 4 -->
+      <div class="project-card">
+        <div class="project-icon">🚀</div>
+        <h3>Landing Page Konversi Tinggi</h3>
+        <p>Optimasi halaman produk untuk memaksimalkan jumlah konversi dengan desain layout modern dan bersih.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <h2>Tertarik untuk Berkolaborasi?</h2>
+    <div class="social-links">
+      <a href="mailto:pitaaa100505@gmail.com">📧 pitaaa100505@gmail.com</a>
+      <a href="tel:08812045140">📱 0881-2045-140</a>
+      <a href="https://www.instagram.com/pitalaura_" target="_blank">💼 pitalaura_</a>
+    </div>
+    <div class="copyright">
+      &copy; 2026 MorinPitaLaura. 2388010040, Informatika6B.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

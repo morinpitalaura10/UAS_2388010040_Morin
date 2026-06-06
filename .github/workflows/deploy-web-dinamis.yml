@@ -28,7 +28,7 @@ jobs:
           file: ./web-dinamis/Dockerfile
           push: true
           no-cache: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/uasweb_dinamis:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/web-dinamis_uas_040:latest
 
   deploy-to-ec2:
     runs-on: ubuntu-latest
@@ -53,7 +53,7 @@ jobs:
               echo "Error: docker-compose.yml not found"
               exit 1
             fi
-            sudo docker pull 1005morinpitalaura/uasweb_dinamis:latest
+            sudo docker pull 1005morinpitalaura/web-dinamis_uas_040:latest
             sudo DOCKERHUB_USERNAME=1005morinpitalaura docker compose up -d --force-recreate --no-deps container-dinamis
             sudo docker image prune -af
             echo "=== Status ==="

@@ -7,7 +7,7 @@ export async function GET() {
     const users = await query('SELECT id_user, username, nama_lengkap, email, no_telepon, role, created_at FROM users ORDER BY id_user DESC');
     return NextResponse.json(users);
   } catch (error) {
-    return NextResponse.json({ error: 'Server error' }, { status: 500 });
+    return NextResponse.json({ error: 'Server error', details: error.message }, { status: 500 });
   }
 }
 
@@ -36,6 +36,6 @@ export async function POST(request) {
     return NextResponse.json({ message: 'User berhasil ditambahkan', id: result.insertId }, { status: 201 });
   } catch (error) {
     console.error('Error creating user:', error);
-    return NextResponse.json({ error: 'Server error' }, { status: 500 });
+    return NextResponse.json({ error: 'Server error', details: error.message }, { status: 500 });
   }
 }

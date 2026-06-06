@@ -37,6 +37,6 @@ export async function GET() {
     });
   } catch (error) {
     console.error('Dashboard API error:', error);
-    return NextResponse.json({ error: 'Server error' }, { status: 500 });
+    return NextResponse.json({ error: 'Server error', details: error.message }, { status: 500 });
   }
 }

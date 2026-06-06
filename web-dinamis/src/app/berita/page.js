@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { query } from '@/lib/db';
 import { Newspaper, Calendar } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'Berita Kesehatan — RS Sehat Sejahtera',
   description: 'Informasi dan berita terbaru seputar kesehatan dari RS Sehat Sejahtera.',

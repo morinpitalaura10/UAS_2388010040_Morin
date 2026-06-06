@@ -5,6 +5,8 @@ import { query } from '@/lib/db';
 import { ArrowLeft, Calendar } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const rows = await query('SELECT judul, excerpt FROM berita WHERE slug = ?', [slug]);

@@ -2,6 +2,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { query } from '@/lib/db';
 import Link from 'next/link';
+
+export const dynamic = 'force-dynamic';
 import {
   Heart, Stethoscope, CalendarCheck, Users, Building2,
   ArrowRight, Phone, Mail, MapPin, Clock, Shield,

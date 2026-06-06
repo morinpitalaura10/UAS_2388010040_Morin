@@ -12,16 +12,22 @@ import {
 } from 'lucide-react';
 
 function AdminLayoutInner({ children }) {
-  const { data: session, status } = useSession();
+  // TEMPORARY: Bypass auth for development — remove before production!
+  const { data: realSession, status } = useSession();
   const router = useRouter();
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  useEffect(() => {
-    if (status === 'unauthenticated') {
-      router.push('/login');
-    }
-  }, [status, router]);
+  // Use real session if logged in, otherwise fake it for dev access
+  const session = realSession || {
+    user: {
+      id: '0',
+      name: 'Dev Admin',
+      username: 'dev',
+      email: 'dev@admin.com',
+      role: 'admin',
+    },
+  };
 
   if (status === 'loading') {
     return (
@@ -31,7 +37,7 @@ function AdminLayoutInner({ children }) {
     );
   }
 
-  if (!session) return null;
+  // Auth bypass: no redirect, no null return
 
   const menuItems = [
     { section: 'Menu Utama', items: [

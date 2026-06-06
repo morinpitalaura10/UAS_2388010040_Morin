@@ -41,7 +41,7 @@ async function getDashboardData() {
       jadwals = await query(`SELECT jd.*, d.nama_dokter 
                              FROM jadwal_dokter jd 
                              JOIN dokter d ON jd.id_dokter = d.id_dokter`);
-    } catch (e) {}
+    } catch (e) { }
 
     return { dokters, polis, spesialis, pasiens: pasiens[0]?.total || 0, jadwals };
   } catch (error) {
@@ -69,7 +69,7 @@ export default async function HomePage() {
               <span>Prioritas Kami</span>
             </h1>
             <p>
-              RS Sehat Sejahtera menyediakan layanan kesehatan terpadu dengan
+              RS Morich menyediakan layanan kesehatan terpadu dengan
               dokter spesialis berpengalaman dan fasilitas medis modern untuk
               kesehatan optimal Anda dan keluarga.
             </p>
@@ -150,7 +150,7 @@ export default async function HomePage() {
             <div className="section-label">Layanan Kami</div>
             <h2 className="section-title">Poliklinik Unggulan</h2>
             <p className="section-desc">
-              Kami menyediakan berbagai layanan poliklinik dengan dokter spesialis 
+              Kami menyediakan berbagai layanan poliklinik dengan dokter spesialis
               yang berpengalaman di bidangnya.
             </p>
           </div>
@@ -291,7 +291,7 @@ export default async function HomePage() {
             <div className="animate-fade-in-up delay-1">
               <div className="glass-card-static" style={{ padding: '32px', height: '100%' }}>
                 <h3 style={{ fontSize: '1.2rem', marginBottom: '24px' }}>Informasi Kontak</h3>
-                
+
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
                     <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(20,184,166,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
@@ -319,7 +319,7 @@ export default async function HomePage() {
                     </div>
                     <div>
                       <div style={{ fontWeight: 600, fontSize: '0.9rem', marginBottom: '4px' }}>Email</div>
-                      <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>info@rs-sehatsejahtera.co.id</div>
+                      <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>info@rs-morich.co.id</div>
                     </div>
                   </div>
 

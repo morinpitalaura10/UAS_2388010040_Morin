@@ -32,7 +32,7 @@ export default function Navbar() {
             <div className="navbar-logo-icon">
               <Heart size={22} color="#fff" />
             </div>
-            <span>RS Sehat Sejahtera</span>
+            <span>RS Morich</span>
           </Link>
 
           <ul className="navbar-links">

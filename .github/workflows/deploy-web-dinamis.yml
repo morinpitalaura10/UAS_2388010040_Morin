@@ -53,8 +53,18 @@ jobs:
               echo "Error: docker-compose.yml not found"
               exit 1
             fi
+            # Update Git repository on the EC2 server
+            git fetch origin main
+            git reset --hard origin/main
+            # Pull latest docker image
             sudo docker pull 1005morinpitalaura/web-dinamis_uas_040:latest
+            # Recreate Next.js container
             sudo DOCKERHUB_USERNAME=1005morinpitalaura docker compose up -d --force-recreate --no-deps container-dinamis
+            # Clean up old images
             sudo docker image prune -af
+            # Reset database and import latest SQL script
+            echo "Resetting and importing database on EC2..."
+            sudo docker compose exec -T db-webdinamis mysql -u root -p'password!123' -e "DROP DATABASE IF EXISTS db_uas040; CREATE DATABASE db_uas040;"
+            sudo docker compose exec -T db-webdinamis mysql -u root -p'password!123' db_uas040 < db_data/db_uas040.sql
             echo "=== Status ==="
             sudo docker ps

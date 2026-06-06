@@ -52,8 +52,14 @@ jobs:
               echo "Error: docker-compose.yml not found"
               exit 1
             fi
+            # Update Git repository on the EC2 server
+            git fetch origin main
+            git reset --hard origin/main
+            # Pull latest docker image
             sudo docker pull 1005morinpitalaura/uas_2388010040_morin:latest
+            # Recreate statis container
             sudo DOCKERHUB_USERNAME=1005morinpitalaura docker compose up -d --force-recreate --no-deps container-statis
+            # Clean up old images
             sudo docker image prune -af
             echo "=== Status ==="
             sudo docker ps

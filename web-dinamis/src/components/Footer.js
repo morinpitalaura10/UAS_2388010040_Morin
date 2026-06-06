@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="footer-brand">
             <h3>
               <Heart size={20} style={{ color: 'var(--accent-primary)' }} />
-              RS Sehat Sejahtera
+              RS Morich
             </h3>
             <p>
               Rumah sakit terpercaya yang berkomitmen memberikan pelayanan kesehatan
@@ -17,13 +17,13 @@ export default function Footer() {
             </p>
             <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-                <MapPin size={14} /> Jl. Kesehatan No. 1, Cirebon
+                <MapPin size={14} /> Jl. Lapangan Udara, Cirebon
               </span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
                 <Phone size={14} /> (0231) 123-4567
               </span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-                <Mail size={14} /> info@rs-sehatsejahtera.co.id
+                <Mail size={14} /> info@rs-morich.co.id
               </span>
             </div>
           </div>
@@ -67,7 +67,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} RS Sehat Sejahtera. All rights reserved. Dibuat oleh Morin.</p>
+          <p>&copy; {new Date().getFullYear()} RS Morich. All rights reserved. Dibuat oleh Morin Pita Laura 2388010040.</p>
         </div>
       </div>
     </footer>

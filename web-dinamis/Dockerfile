@@ -17,12 +17,10 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 # Copy build files from builder
-COPY --from=builder /app/.next/standalone ./.next/standalone
-COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
-
-COPY --from=builder /app/node_modules ./.next/standalone/node_modules
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
 
 EXPOSE 3000
 
-CMD ["node", ".next/standalone/server.js"]
+CMD ["node", "server.js"]

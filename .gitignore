@@ -1,0 +1,10 @@
+# Root
+node_modules/
+.next/
+db_data/
+.env
+
+# Subfolder web-dinamis
+web-dinamis/node_modules/
+web-dinamis/.next/
+web-dinamis/db_data/

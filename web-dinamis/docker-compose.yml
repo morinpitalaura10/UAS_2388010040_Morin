@@ -33,7 +33,7 @@ services:
     depends_on:
       - db-webdinamis
     volumes:
-      - ./deploy.log:/app/public/deploy.log
+      - ./deploy.log:/app/deploy.log
 
 volumes:
   db_data: {}

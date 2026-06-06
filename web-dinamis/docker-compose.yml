@@ -1,0 +1,37 @@
+services:
+
+  db-webdinamis:
+    image: mariadb:lts
+    environment:
+      MARIADB_ROOT_PASSWORD: password!123
+      MARIADB_DATABASE: db_uas040
+      MARIADB_USER: morinuas
+      MARIADB_PASSWORD: uas123
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db_data/db_uas040.sql:/docker-entrypoint-initdb.d/db_uas040.sql
+    restart: always
+
+  container-statis:
+    image: ${DOCKERHUB_USERNAME}/uas_2388010040_morin:latest
+    ports:
+      - "80:80"
+    restart: always
+
+  container-dinamis:
+    image: ${DOCKERHUB_USERNAME}/web-dinamis_uas_040:latest
+    ports:
+      - "3000:3000"
+    restart: always
+    environment:
+      DB_HOST: db-webdinamis
+      DB_USER: morinuas
+      DB_PASSWORD: uas123
+      DB_NAME: db_uas040
+      NEXTAUTH_URL: http://54.251.214.196:3000
+      NEXTAUTH_SECRET: superrahasiabanget1234
+    depends_on:
+      - db-webdinamis
+
+volumes:
+  db_data: {}

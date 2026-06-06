@@ -32,6 +32,8 @@ services:
       NEXTAUTH_SECRET: superrahasiabanget12345678901234
     depends_on:
       - db-webdinamis
+    volumes:
+      - ./deploy.log:/app/public/deploy.log
 
 volumes:
   db_data: {}

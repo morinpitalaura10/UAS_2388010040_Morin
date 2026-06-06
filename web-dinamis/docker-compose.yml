@@ -25,9 +25,9 @@ services:
     restart: always
     environment:
       DB_HOST: db-webdinamis
-      DB_USER: RaihanUAS
-      DB_PASSWORD: 12345
-      DB_NAME: uas47
+      DB_USER: MorinUAS
+      DB_PASSWORD: UAS123
+      DB_NAME: db_uas040
       NEXTAUTH_URL: http://54.251.214.196:3000
       NEXTAUTH_SECRET: superrahasiabanget12345678901234
     depends_on:

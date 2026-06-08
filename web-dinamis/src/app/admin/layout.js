@@ -40,20 +40,26 @@ function AdminLayoutInner({ children }) {
   // Auth bypass: no redirect, no null return
 
   const menuItems = [
-    { section: 'Menu Utama', items: [
-      { href: '/admin', icon: LayoutDashboard, label: 'Dashboard' },
-    ]},
-    { section: 'Master Data', items: [
-      { href: '/admin/dokter', icon: Stethoscope, label: 'Dokter' },
-      { href: '/admin/poliklinik', icon: Building2, label: 'Poliklinik' },
-      { href: '/admin/jadwal_dokter', icon: Calendar, label: 'Jadwal Dokter' },
-      { href: '/admin/users', icon: Users, label: 'Users' },
-    ]},
-    { section: 'Konten', items: [
-      { href: '/admin/berita', icon: Newspaper, label: 'Berita' },
-      { href: '/admin/layanan', icon: Layers, label: 'Layanan' },
-      { href: '/admin/kontak', icon: Mail, label: 'Pesan Kontak' },
-    ]},
+    {
+      section: 'Menu Utama', items: [
+        { href: '/admin', icon: LayoutDashboard, label: 'Dashboard' },
+      ]
+    },
+    {
+      section: 'Master Data', items: [
+        { href: '/admin/dokter', icon: Stethoscope, label: 'Dokter' },
+        { href: '/admin/poliklinik', icon: Building2, label: 'Poliklinik' },
+        { href: '/admin/jadwal_dokter', icon: Calendar, label: 'Jadwal Dokter' },
+        { href: '/admin/users', icon: Users, label: 'Users' },
+      ]
+    },
+    {
+      section: 'Konten', items: [
+        { href: '/admin/berita', icon: Newspaper, label: 'Berita' },
+        { href: '/admin/layanan', icon: Layers, label: 'Layanan' },
+        { href: '/admin/kontak', icon: Mail, label: 'Pesan Kontak' },
+      ]
+    },
   ];
 
   const getPageTitle = () => {
@@ -114,7 +120,7 @@ function AdminLayoutInner({ children }) {
             style={{ width: '100%', color: 'var(--color-danger)' }}
           >
             <LogOut size={20} />
-            <span>Logout</span>
+            <span>Keluar</span>
           </button>
         </div>
       </aside>

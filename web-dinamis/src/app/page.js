@@ -101,9 +101,9 @@ export default async function HomePage() {
           <div className="hero-visual animate-fade-in-up delay-2">
             <div className="hero-card-stack">
               <div className="hero-floating-card" style={{ padding: 0, overflow: 'hidden', height: '320px', position: 'relative' }}>
-                <img 
-                  src="/hospital_hero.png" 
-                  alt="RS Morich" 
+                <img
+                  src="/hospital_hero.png"
+                  alt="RS Morich"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
                 <div style={{

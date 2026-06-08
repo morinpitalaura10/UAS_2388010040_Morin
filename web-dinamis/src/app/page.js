@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import BookingForm from '@/components/BookingForm';
 import ContactForm from '@/components/ContactForm';
+export const dynamic = 'force-dynamic';
 
 const iconMap = {
   'Baby': Baby,

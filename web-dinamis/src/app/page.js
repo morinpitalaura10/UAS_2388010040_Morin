@@ -100,22 +100,29 @@ export default async function HomePage() {
 
           <div className="hero-visual animate-fade-in-up delay-2">
             <div className="hero-card-stack">
-              <div className="hero-floating-card">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'var(--accent-gradient)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Stethoscope size={24} color="#fff" />
+              <div className="hero-floating-card" style={{ padding: 0, overflow: 'hidden', height: '320px', position: 'relative' }}>
+                <img 
+                  src="/hospital_hero.png" 
+                  alt="RS Morich" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(to top, rgba(5,10,24,0.85) 0%, transparent 60%)',
+                  display: 'flex',
+                  alignItems: 'flex-end',
+                  padding: '20px'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'var(--accent-gradient)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Building2 size={20} color="#fff" />
+                    </div>
+                    <div>
+                      <div style={{ fontWeight: 700, fontSize: '1rem', color: '#fff' }}>RS Morich</div>
+                      <div style={{ fontSize: '0.75rem', color: '#cbd5e1' }}>Layanan Terintegrasi & Modern</div>
+                    </div>
                   </div>
-                  <div>
-                    <div style={{ fontWeight: 600, fontSize: '0.95rem' }}>Konsultasi Online</div>
-                    <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Dokter tersedia</div>
-                  </div>
-                </div>
-                <div style={{ display: 'flex', gap: '8px' }}>
-                  {polis.slice(0, 3).map((p, i) => (
-                    <span key={i} className="badge badge-success" style={{ fontSize: '0.7rem' }}>
-                      {p.nama_poli}
-                    </span>
-                  ))}
                 </div>
               </div>
 
